@@ -1,0 +1,63 @@
+0.4: uusi muistiinpano
+
+Selain lähettää palvelimelle HTTP POST osoitteeseen https:https://studies.cs.helsinki.fi/exampleapp/new_note
+
+Sen jälkeen selain lähettää palvelimelle samat GETit kuin se lähettää avatessaan koko sivun uudestaan. (esimerkki)
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.js
+
+note over selain:
+selain alkaa suorittaa js-koodia
+joka pyytää JSON-datan palvelimelta
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [{ content: "HTML on helppoa", date: "2019-01-01" }, ...]
+
+note over selain:
+selain suorittaa tapahtumankäsittelijän
+joka renderöi muistiinpanot näytölle
+end note
+
+
+
+0.5: Single Page App
+
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+palvelin-->selain: spa.js
+
+note over selain:
+selain alkaa suorittaa js-koodia
+joka pyytää JSON-datan palvelimelta
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [{ content: "HTML on helppoa", date: "2019-01-01" }, ...]
+
+note over selain:
+selain suorittaa tapahtumankäsittelijän
+joka renderöi muistiinpanot näytölle
+end note
+
+
+
+
+0.6: Uusi muistiinpano
+
+Selain lähettää palvelimelle HTTP POST osoitteeseen https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+Palvelin vastaa selaimelle 201 created, jolloin note on luotu palvelimelle.
+
+Sen jälkeen selain muokkaa sivua JavaScriptin mukaan ja lisää sinne käyttäjän luoman noten, lataamatta koko sivua uudestaan.
+
+
