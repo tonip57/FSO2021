@@ -1,1 +1,1 @@
-Tehtävät 2.6 - 2.10
+Kaikki puhelinluettelotehtävät 2.20 asti
