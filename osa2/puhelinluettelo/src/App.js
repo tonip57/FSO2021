@@ -32,7 +32,7 @@ const App = () => {
       var id
       for (var i = 0; i < persons.length; i++) {
         if (persons[i].name === newName) {
-          id = i + 1
+          id = persons[i].id
         }
       }
       replaceNumber(id, newName)
@@ -65,8 +65,7 @@ const App = () => {
       personService
       .deletePerson(id)
       .then(response => {
-        console.log(response)
-        const p = persons.filter(item => item.id !== id)  
+        var p = persons.filter(person => person.id !== id)
         setPersons(p)
         setPersonsShown(p)
         setNewName('')
